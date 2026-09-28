@@ -44,7 +44,7 @@ curl -L --fail --max-time 40 --range 0-1048575 'https://archive.org/download/twi
 Exact successful conformance invocation:
 
 ```sh
-IA_CONFORMANCE_NETWORK=1 IA_FFPROBE=/opt/homebrew/bin/ffprobe IA_CONFORMANCE_MKV_PATH=/tmp/ia-conformance-prefix.mkv IA_CONFORMANCE_VOB_PATH=/tmp/archive-programstream-prefix.vob IA_CONFORMANCE_TS_PATH=/tmp/ia-transport-corpus.ts swift test --package-path ArchivePlayerCore --filter CorpusConformanceTests
+IA_CONFORMANCE_NETWORK=1 IA_FFPROBE=/opt/homebrew/bin/ffprobe IA_CONFORMANCE_MKV_PATH=/tmp/ia-conformance-prefix.mkv IA_CONFORMANCE_VOB_PATH=/tmp/archive-programstream-prefix.vob IA_CONFORMANCE_TS_PATH=/tmp/ia-transport-corpus.ts swift test --filter CorpusConformanceTests
 ```
 
 Oracle command executed per prefix:

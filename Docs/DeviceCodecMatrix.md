@@ -30,6 +30,6 @@ The paired iPhone 15 Pro Max belongs to another named person and was not used. T
 
 Mac tests: `IA_NETWORK_TESTS=1 swift test --filter MatroskaDecodeTests`,
 `IA_RENDER_TESTS=1 swift test --filter PlaybackEngineTests`, and
-`swift test --filter CodecCapabilityTests` in `ArchivePlayerCore`.
+`swift test --filter CodecCapabilityTests`.
 The iOS simulator test was run through the Archive Xcode scheme with its live
 network opt-in temporarily enabled and then restored to opt-in.

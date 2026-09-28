@@ -12,7 +12,7 @@ Commands used:
 
 ```sh
 bash Scripts/RemuxExperiment.sh
-REMUX_EXPERIMENT_DIR=/tmp/archive-remux-experiment.9lFxmA swift test --package-path ArchivePlayerCore --filter RemuxExperimentTests
+REMUX_EXPERIMENT_DIR=/tmp/archive-remux-experiment.9lFxmA swift test --filter RemuxExperimentTests
 ```
 
 The script prints its newly created directory; substitute that directory when reproducing. `FFMPEG` and `FFPROBE` can override the default `/opt/homebrew/bin` executables. It avoids overwriting existing fixtures. Final script, including hash comparison, was independently rerun successfully in `/tmp/archive-remux-experiment.RwGvFE`.

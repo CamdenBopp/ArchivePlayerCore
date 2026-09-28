@@ -27,7 +27,7 @@ The [IA metadata response](https://archive.org/metadata/vts-01-1_20250820_1408) 
 Validation command:
 
 ```sh
-PROGRAM_STREAM_NETWORK_TEST=1 swift test --package-path ArchivePlayerCore --filter ProgramStreamTests
+PROGRAM_STREAM_NETWORK_TEST=1 swift test --filter ProgramStreamTests
 ```
 
 The full package suite passed: 37 tests, three optional corpus probes skipped, zero failures, with local VOB-prefix and IFO probes enabled. The live network PS probe also passed separately. Offline CI exercises synthetic private streams, pack/PES headers, timestamp markers/wrap, truncated input, short reads, segment boundaries, IFO attribute remapping, continuous-map nonzero seek, discontinuity rejection, and rewind. Local probes use `PROGRAM_STREAM_CORPUS_PREFIX` and `PROGRAM_STREAM_CORPUS_IFO`. Network probe failures are skipped when the corpus is unavailable; parser/assertion failures after a successful response fail the test.
@@ -64,7 +64,7 @@ A cached local-prefix run preparing formats and constructing the first 30 sample
 Exact successful command with real decoding, IFO and engine gates enabled:
 
 ```sh
-PROGRAM_STREAM_CORPUS_PREFIX=/tmp/archive-programstream-prefix.vob PROGRAM_STREAM_RENDER_NETWORK=1 PROGRAM_STREAM_CORPUS_IFO=/tmp/archive-programstream-title.ifo swift test --package-path ArchivePlayerCore --filter ProgramStream
+PROGRAM_STREAM_CORPUS_PREFIX=/tmp/archive-programstream-prefix.vob PROGRAM_STREAM_RENDER_NETWORK=1 PROGRAM_STREAM_CORPUS_IFO=/tmp/archive-programstream-title.ifo swift test --filter ProgramStream
 ```
 
 That run passed **18 selected tests, one optional separate network-prefix probe skipped, zero failures**. The final bounded-scan revision was then rerun against cached data without another HTTP download: **18 selected tests, three optional skips, zero failures**. The selected count includes one byte-source integration regression alongside the owned PS tests. No engine/UI files were edited.
