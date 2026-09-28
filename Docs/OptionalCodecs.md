@@ -39,7 +39,7 @@ test -z "$(git -C "$FFMPEG_SOURCE" status --porcelain)"
 Audit the generated `config.h` and `config_components.h` before running `make`. From this repository:
 
 ```sh
-swift run --package-path ArchivePlayerExtraCodecs audit-ffmpeg-build \
+swift run --package-path ExtraCodecs audit-ffmpeg-build \
   /absolute/build/config.h /absolute/build/config_components.h \
   946fcce07b6dcd0331c8cc609192aeff5e1924f8
 ```
@@ -56,4 +56,4 @@ Before distribution, complete the upstream LGPL checklist: make exact correspond
 
 The eventual bridge would own decoder contexts and use [FFmpeg's send/receive API](https://ffmpeg.org/doxygen/trunk/group__lavc__encdec.html), including EAGAIN, drain and seek-flush behavior. It must map demux codec-private data and timestamps, preserve packet lifetime/padding, bound allocations, convert output frames/planes into CoreVideo or PCM buffers, and report actual native-versus-fallback capability. None of that bridge exists here. No fallback decoder is advertised by this package; its `decoderIntegrationImplemented` value is false.
 
-Validation completed: `swift package dump-package` succeeded and showed no external dependencies, binary targets or system-library targets. An initial `swift test` attempt failed during XCTest dependency scanning with **No space left on device**; only that generated `.build` directory was removed. After recovering space, `swift test --package-path ArchivePlayerExtraCodecs -j 2` passed all four audit tests with zero failures on macOS. The tests cover an allowed configuration, GPL/nonfree/version3 rejection, unexpected components/libraries/revision, and conflicting/duplicate definitions. No FFmpeg source checkout/archive, binary build or linking was attempted; configuration/license references were read remotely.
+Validation completed: `swift package dump-package` succeeded and showed no external dependencies, binary targets or system-library targets. An initial `swift test` attempt failed during XCTest dependency scanning with **No space left on device**; only that generated `.build` directory was removed. After recovering space, `swift test --package-path ExtraCodecs -j 2` passed all four audit tests with zero failures on macOS. The tests cover an allowed configuration, GPL/nonfree/version3 rejection, unexpected components/libraries/revision, and conflicting/duplicate definitions. No FFmpeg source checkout/archive, binary build or linking was attempted; configuration/license references were read remotely.

@@ -5,7 +5,7 @@ On the tested macOS 27 host, stream-copy remuxing made a synthetic H.264/AAC MKV
 ## Reproducible artifacts
 
 - `Scripts/RemuxExperiment.sh` generates three-second synthetic originals, performs measured `-c copy` remuxes, saves ffprobe metadata and `/usr/bin/time -l` output, and compares compressed elementary-stream SHA-256 hashes.
-- `ArchivePlayerCore/Tests/ArchivePlayerCoreTests/RemuxExperimentTests.swift` loads each original/result with AVURLAsset, enumerates tracks, decodes a PCM buffer from each audio track using AVAssetReader, and polls AVPlayerItemVideoOutput for a decoded video pixel buffer. AVPlayer stays muted.
+- `Tests/ArchivePlayerCoreTests/RemuxExperimentTests.swift` loads each original/result with AVURLAsset, enumerates tracks, decodes a PCM buffer from each audio track using AVAssetReader, and polls AVPlayerItemVideoOutput for a decoded video pixel buffer. AVPlayer stays muted.
 - Fixtures and experiment logs live in temporary directories, not the application bundle. FFmpeg/ffprobe are development tools only; no library, binary, or dependency was added to the app.
 
 Commands used:

@@ -51,4 +51,4 @@ for remux_name in h264-aac.mkv mpeg2-ac3.vob mpeg2-ac3.ts; do
     printf 'Remux failed; inspect log: %s\n' "$remux_name"
   fi
 done
-printf 'Run AVFoundation probe with REMUX_EXPERIMENT_DIR=%s swift test --package-path ArchivePlayerCore --filter RemuxExperimentTests\n' "$remux_dir"
+printf 'Run AVFoundation probe with REMUX_EXPERIMENT_DIR=%s swift test --filter RemuxExperimentTests\n' "$remux_dir"

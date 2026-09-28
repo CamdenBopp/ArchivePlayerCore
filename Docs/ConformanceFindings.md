@@ -1,6 +1,6 @@
 # Corpus conformance and startup measurements
 
-`ArchivePlayerCore/Tests/ArchivePlayerCoreTests/CorpusConformanceTests.swift` adds three development tests: malformed-input typed errors, optional local ffprobe oracle comparisons, and optional real Internet Archive HTTP Range startup measurements. No oracle executable or library is added to the application or package dependencies.
+`Tests/ArchivePlayerCoreTests/CorpusConformanceTests.swift` adds three development tests: malformed-input typed errors, optional local ffprobe oracle comparisons, and optional real Internet Archive HTTP Range startup measurements. No oracle executable or library is added to the application or package dependencies.
 
 ## Measured run
 

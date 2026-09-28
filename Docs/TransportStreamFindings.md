@@ -1,6 +1,6 @@
 # MPEG transport stream demuxing
 
-`ArchivePlayerCore/TransportStreamDemuxer` is a native Swift, bounded 188-byte TS parser. It implements PAT/PMT section assembly and MPEG CRC checking; PMT stream and ISO-639/audio-type descriptors; payload continuity counters, duplicate suppression, explicit discontinuity resets; PES assembly with checked PTS/DTS marker bits and 90 kHz timestamps. Packet framing is explicitly exposed as `raw-pes-payload`.
+`Sources/ArchivePlayerCore/TransportStreamDemuxer.swift` is a native Swift, bounded 188-byte TS parser. It implements PAT/PMT section assembly and MPEG CRC checking; PMT stream and ISO-639/audio-type descriptors; payload continuity counters, duplicate suppression, explicit discontinuity resets; PES assembly with checked PTS/DTS marker bits and 90 kHz timestamps. Packet framing is explicitly exposed as `raw-pes-payload`.
 
 Identified codecs: AVC/H.264, HEVC, AAC ADTS, AAC LATM, AC-3, E-AC-3, and MPEG audio. MPEG audio stream types cannot distinguish Layer II from Layer III: the first available elementary header refines `mpeg-audio` to `mp2`/`mp3`. Private-stream AC-3/E-AC-3 use DVB or registration descriptors. Language uses the first ISO-639 entry; audio types 2 and 3 map to hearing/visual impairment roles. Clean-effects type 1 is not commentary and is not incorrectly labeled as such.
 

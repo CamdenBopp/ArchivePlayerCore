@@ -1,6 +1,6 @@
 # MPEG program streams and DVD VOBs
 
-Implemented independently in `ArchivePlayerCore/ProgramStreamDemuxer.swift`; no GPL decoder or demuxer code was copied or linked.
+Implemented independently in `Sources/ArchivePlayerCore/ProgramStreamDemuxer.swift`; no GPL decoder or demuxer code was copied or linked.
 
 ## Supported parsing
 
